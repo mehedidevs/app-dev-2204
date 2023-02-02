@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, PlayActivityFull::class.java)
             startActivity(intent)
 
-
         }
 
 
