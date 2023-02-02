@@ -8,18 +8,12 @@ import com.ju.simplequiz2204.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.playBtn.setOnClickListener {
-            val intent= Intent(applicationContext, PlayActivityFull::class.java)
-            startActivity(intent)
 
-
-        }
 
 
 
