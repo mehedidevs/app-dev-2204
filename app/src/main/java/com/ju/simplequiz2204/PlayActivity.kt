@@ -80,11 +80,15 @@ class PlayActivity : AppCompatActivity() {
     private fun setQuiz(quizIndex: Int) {
 
         var quiz: Quiz = quizList.get(quizIndex)
-        binding.questionTv.text = quiz.question
-        binding.option1.text = quiz.option1
-        binding.option2.text = quiz.option2
-        binding.option3.text = quiz.option3
-        binding.option4.text = quiz.option4
+
+        binding.apply {
+            questionTv.text = quiz.question
+            option1.text = quiz.option1
+            option2.text = quiz.option2
+            option3.text = quiz.option3
+            option4.text = quiz.option4
+
+        }
 
 
     }
@@ -93,11 +97,11 @@ class PlayActivity : AppCompatActivity() {
 
         if (correctAnswer == givenAnswer) {
 
-            Toast.makeText(this,"Right Answer", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Right Answer", Toast.LENGTH_SHORT).show()
 
-           // binding.mainLayout.setBackgroundColor(getColor(R.color.green))
+            // binding.mainLayout.setBackgroundColor(getColor(R.color.green))
         } else {
-            Toast.makeText(this,"Wrong Answer", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Wrong Answer", Toast.LENGTH_SHORT).show()
 
             // binding.mainLayout.setBackgroundColor(getColor(R.color.red))
         }

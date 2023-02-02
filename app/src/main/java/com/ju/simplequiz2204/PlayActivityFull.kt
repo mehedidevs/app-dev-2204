@@ -99,6 +99,8 @@ class PlayActivityFull : AppCompatActivity() {
 
 
         val quiz = quizList[qIndex]
+        binding.tvQuestion.text=quiz.question
+
 
         binding.apply {
             tvQuestion.text = quiz.question
