@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/round_home_24"
+        android:title="Home" />
+    <item
+        android:id="@+id/searchFragment"
+        android:icon="@drawable/round_person_search_24"
+        android:title="Search" />
+    <item
+        android:id="@+id/chatFragment"
+        android:icon="@drawable/round_mark_unread_chat_alt_24"
+        android:title="Chat" />
+
+
+</menu>

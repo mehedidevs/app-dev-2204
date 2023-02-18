@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <item
+        android:id="@+id/homeMenu"
+        android:icon="@drawable/round_home_24"
+        android:title="Home" />
+    <item
+        android:id="@+id/searchMenu"
+        android:icon="@drawable/round_person_search_24"
+        android:title="Search" />
+    <item
+        android:id="@+id/chatMenu"
+        android:icon="@drawable/round_mark_unread_chat_alt_24"
+        android:title="Chat" />
+
+
+</menu>
