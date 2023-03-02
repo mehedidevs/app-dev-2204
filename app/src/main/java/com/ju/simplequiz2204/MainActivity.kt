@@ -7,15 +7,16 @@ import com.ju.simplequiz2204.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    var nameList = listOf<String>("Mehedi", "Masum", "Avijit", "Erina", "Ismam", "Mubassir",
-        "Mehedi", "Masum", "Avijit", "Erina", "Ismam", "Mubassir",
-        "Mehedi", "Masum", "Avijit", "Erina", "Ismam", "Mubassir",
-        "Mehedi", "Masum", "Avijit", "Erina", "Ismam", "Mubassir",
-        "Mehedi", "Masum", "Avijit", "Erina", "Ismam", "Mubassir",
+    var nameList = listOf<String>("Mehedi", "Masum", "Avijit", "Erina", "Ismam", "Mubassir")
+    val celebList = listOf<Celeb>(
+        Celeb("Amir Khan", amirBio, amirImg),
+        Celeb("Akshay Kumar", akhshayBio, akhshayImg),
+        Celeb(" Anushka Shetty", anushkaBio, anushkaBioImg)
+    )
 
-        )
 
     lateinit var nameAdapter: NameAdapter
+    lateinit var celebAdapter: CelebAdapter;
 
 
     lateinit var binding: ActivityMainBinding
@@ -26,8 +27,9 @@ class MainActivity : AppCompatActivity() {
 
         nameAdapter = NameAdapter()
         nameAdapter.submitList(nameList)
-
-        binding.nameRCV.adapter = nameAdapter
+        celebAdapter = CelebAdapter(this@MainActivity)
+        celebAdapter.submitList(celebList)
+        binding.nameRCV.adapter = celebAdapter
 
 
     }
