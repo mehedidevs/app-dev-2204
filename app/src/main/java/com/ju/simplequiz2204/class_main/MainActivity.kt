@@ -14,14 +14,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //starting the quiz game
+
         binding.playBtn.setOnClickListener {
-            val intent= Intent(applicationContext, PlayActivityFull::class.java)
+            val intent = Intent(applicationContext, PlayActivityFull::class.java)
             startActivity(intent)
 
 
         }
-
-
 
 
     }
