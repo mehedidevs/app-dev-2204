@@ -1,4 +1,4 @@
-package com.ju.simplequiz2204
+package com.ju.simplequiz2204.class_main
 
 data class Quiz(
     val question: String,

@@ -1,10 +1,11 @@
-package com.ju.simplequiz2204
+package com.ju.simplequiz2204.class_main
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.ju.simplequiz2204.R
 import com.ju.simplequiz2204.databinding.ActivityResultBinding
 
 class ResultActivity : AppCompatActivity() {

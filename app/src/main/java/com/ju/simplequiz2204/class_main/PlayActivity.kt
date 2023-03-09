@@ -1,4 +1,4 @@
-package com.ju.simplequiz2204
+package com.ju.simplequiz2204.class_main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

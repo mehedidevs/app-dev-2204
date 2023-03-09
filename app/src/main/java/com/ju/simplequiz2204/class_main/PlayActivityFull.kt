@@ -1,4 +1,4 @@
-package com.ju.simplequiz2204
+package com.ju.simplequiz2204.class_main
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -15,6 +15,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.ju.simplequiz2204.R
 import com.ju.simplequiz2204.databinding.ActivityPlayCustomBinding
 import com.ju.simplequiz2204.databinding.CorrectAnswerBinding
 import java.util.*
