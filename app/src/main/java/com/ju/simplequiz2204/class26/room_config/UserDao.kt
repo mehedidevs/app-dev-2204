@@ -1,9 +1,6 @@
 package com.ju.simplequiz2204.class26.room_config
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Update
+import androidx.room.*
 
 @Dao
 interface UserDao {
@@ -18,6 +15,8 @@ interface UserDao {
     fun userDelete(user: User)
 
 
+    @Query("SELECT * FROM User")
+    fun getAllUser(): List<User>
 
 
 }
