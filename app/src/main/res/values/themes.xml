@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.SimpleQuiz2204" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.SimpleQuiz2204" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -13,4 +13,22 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- styles.xml -->
+    <style name="avipay">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#232440</item>
+    </style>
+    <!-- styles.xml -->
+    <style name="consumer_lo">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#6E6E82</item>
+    </style>
+
+    <!-- styles.xml -->
+    <style name="get_started_btn_text">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
 </resources>

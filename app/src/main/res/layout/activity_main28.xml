@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    tools:context=".class28.MainActivity28">
+
+
+    <ImageView
+        android:id="@+id/topImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/graphic_top_first"
+        app:layout_constraintDimensionRatio="340:326"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="44dp"
+        android:src="@drawable/ic_first_page"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topImage" />
+
+    <!-- Avipay -->
+    <TextView
+        android:id="@+id/avipay"
+        android:layout_width="77dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="12dp"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="-3sp"
+        android:text="@string/main_app_name"
+        android:textAppearance="@style/avipay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon" />
+
+    <!-- Consumer Loan Payment, pay bills and many other services -->
+    <TextView
+        android:id="@+id/consumer_lo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="2sp"
+        android:text="@string/first_page_msg"
+        android:textAppearance="@style/consumer_lo"
+        android:translationY="-0.89sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/avipay" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_normal_background"
+        android:text="@string/get_started"
+        android:textAppearance="@style/get_started_btn_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/consumer_lo" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

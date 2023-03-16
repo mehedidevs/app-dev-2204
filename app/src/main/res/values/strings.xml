@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Quizzer</string>
+
+    <string name="main_app_name">Avipay</string>
+    <string name="get_started"> Get Started</string>
+    <string name="first_page_msg">Consumer Loan Payment, pay bills\nand many other services</string>
+
+
 </resources>
