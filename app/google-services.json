@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "275869663065",
+    "project_id": "alapon-3d4a7",
+    "storage_bucket": "alapon-3d4a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275869663065:android:902d475ae2e762b1415648",
+        "android_client_info": {
+          "package_name": "com.ju.simplequiz2204"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "275869663065-031ek8qs5e127mq7o6bomijo4l8n9r11.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsUuJO0AV49Zej20MkaGl75wurSF7vNDY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "275869663065-031ek8qs5e127mq7o6bomijo4l8n9r11.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

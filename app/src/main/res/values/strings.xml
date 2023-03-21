@@ -4,6 +4,11 @@
     <string name="main_app_name">Avipay</string>
     <string name="get_started"> Get Started</string>
     <string name="first_page_msg">Consumer Loan Payment, pay bills\nand many other services</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="welcome_text">আলাপনে আপনাকে স্বাগতম</string>
 
 
 </resources>
