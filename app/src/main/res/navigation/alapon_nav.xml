@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.ju.simplequiz2204.SignInFragment"
+        android:name="com.ju.simplequiz2204.class29.SignInFragment"
         android:label="fragment_sign_in"
         tools:layout="@layout/fragment_sign_in" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.ju.simplequiz2204.RegisterFragment"
+        android:name="com.ju.simplequiz2204.class29.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -31,7 +31,13 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.ju.simplequiz2204.HomeFragment"
+        android:name="com.ju.simplequiz2204.class29.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_signInFragment"
+            app:destination="@id/signInFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

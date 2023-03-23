@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".RegisterFragment">
+    tools:context=".class29.RegisterFragment">
 
 
     <ImageView
@@ -23,13 +23,43 @@
         android:text="@string/welcome_text"
         android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
+    <EditText
+        android:id="@+id/nameEdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="50dp"
+        android:hint="Name"
+        android:inputType="text"
+
+        />
+    <EditText
+        android:id="@+id/phoneEdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="10dp"
+        android:hint="Phone"
+        android:inputType="number"
+
+        />
+    <EditText
+        android:id="@+id/addressEdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="10dp"
+        android:hint="Address"
+        android:inputType="text"
+
+        />
 
     <EditText
         android:id="@+id/emailEdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
 

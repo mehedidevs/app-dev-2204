@@ -1,17 +1,17 @@
-package com.ju.simplequiz2204
+package com.ju.simplequiz2204.class29
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.ju.simplequiz2204.R
 import com.ju.simplequiz2204.databinding.FragmentSignInBinding
-
 
 class SignInFragment : Fragment() {
 
