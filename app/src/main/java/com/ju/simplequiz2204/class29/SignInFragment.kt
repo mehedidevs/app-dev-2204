@@ -27,7 +27,7 @@ class SignInFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        FirebaseApp.initializeApp(requireContext())
+
         binding = FragmentSignInBinding.inflate(layoutInflater, container, false)
 
         mAuth = FirebaseAuth.getInstance()
@@ -43,8 +43,8 @@ class SignInFragment : Fragment() {
         }
 
         binding.signInBtn.setOnClickListener {
-            val email = binding.emailEdt.text.toString()
-            val password = binding.passEdt.text.toString()
+            val email = binding.emailEdt.text.toString().trim()
+            val password = binding.passEdt.text.toString().trim()
             signInUser(email, password)
         }
         return binding.root

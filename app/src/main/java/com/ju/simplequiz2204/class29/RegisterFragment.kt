@@ -21,7 +21,7 @@ class RegisterFragment : Fragment() {
     lateinit var mAuth: FirebaseAuth
 
 
-    lateinit var myRef : DatabaseReference
+    lateinit var myRef: DatabaseReference
 
     lateinit var userId: String
     lateinit var firebaseUser: FirebaseUser
@@ -37,16 +37,12 @@ class RegisterFragment : Fragment() {
         mAuth = FirebaseAuth.getInstance()
 
 
-
         val database = Firebase.database
         myRef = database.reference.child("User")
 
         binding.signInBtn.setOnClickListener {
-
-
             findNavController().navigate(R.id.action_registerFragment_to_signInFragment)
         }
-
 
         binding.registerBtn.setOnClickListener {
             val email = binding.emailEdt.text.toString()
@@ -65,25 +61,41 @@ class RegisterFragment : Fragment() {
         return binding.root
     }
 
-    private fun registerUser(email: String, password: String, name: String, phone : String, address : String) {
+    private fun registerUser(
+        email: String,
+        password: String,
+        name: String,
+        phone: String,
+        address: String
+    ) {
 
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     firebaseUser = FirebaseAuth.getInstance().currentUser!!
                     userId = firebaseUser.uid
-                    val map = mapOf("name" to name, "email" to email, "phone" to phone, "password" to password, "address" to address )
-                    if ( userId != null){
+                    val map = mapOf(
+                        "name" to name,
+                        "email" to email,
+                        "phone" to phone,
+                        "password" to password,
+                        "address" to address
+                    )
+
+                    if (userId != null) {
                         myRef.child(userId).setValue(map).addOnCompleteListener {
-                            if (it.isSuccessful){
+                            if (it.isSuccessful) {
                                 findNavController().navigate(R.id.action_registerFragment_to_homeFragment)
-                            }else{
-                                Toast.makeText(requireContext(), "${it.exception?.message}", Toast.LENGTH_LONG)
+                            } else {
+                                Toast.makeText(
+                                    requireContext(),
+                                    "${it.exception?.message}",
+                                    Toast.LENGTH_LONG
+                                )
                                     .show()
                             }
                         }
                     }
-
 
 
                 } else {
