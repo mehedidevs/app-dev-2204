@@ -12,6 +12,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.ju.simplequiz2204.ProfileFragment
 
 import com.ju.simplequiz2204.R
 import com.ju.simplequiz2204.databinding.FragmentHomeBinding
@@ -82,7 +83,7 @@ class HomeFragment : Fragment(), UserAdapter.UserListener {
 
         var bundle = Bundle()
 
-        bundle.putParcelable("email",user)
+        bundle.putParcelable(ProfileFragment.USER, user)
 
 
 

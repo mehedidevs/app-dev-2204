@@ -23,7 +23,7 @@ class ProfileFragment : Fragment() {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
 
 
-        var user = requireArguments().getParcelable<User>("email")!!
+        var user = requireArguments().getParcelable<User>(USER)!!
 
         binding.mobileTv.text = user.phone
         binding.nameTv.text = user.email
@@ -35,6 +35,13 @@ class ProfileFragment : Fragment() {
 
 
         return binding.root
+    }
+
+    companion object {
+
+        const val USER = "user"
+
+
     }
 
 
