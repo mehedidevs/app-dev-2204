@@ -17,7 +17,7 @@ import com.ju.simplequiz2204.R
 import com.ju.simplequiz2204.databinding.FragmentHomeBinding
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), UserAdapter.UserListener {
 
     lateinit var binding: FragmentHomeBinding
     lateinit var mAuth: FirebaseAuth
@@ -32,7 +32,7 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         mAuth = FirebaseAuth.getInstance()
-        adapter = UserAdapter()
+        adapter = UserAdapter(this@HomeFragment)
 
         binding.logoutBtn.setOnClickListener {
             mAuth.signOut();
@@ -49,7 +49,7 @@ class HomeFragment : Fragment() {
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
 
-
+                    userList.clear()
                     snapshot.children.forEach {
 
 
@@ -73,6 +73,21 @@ class HomeFragment : Fragment() {
 
                 }
             })
+
+
+    }
+
+    override fun moveUser(user: User) {
+        //var userEmail = user.email
+
+        var bundle = Bundle()
+
+        bundle.putParcelable("email",user)
+
+
+
+
+        findNavController().navigate(R.id.action_homeFragment_to_profileFragment, bundle)
 
 
     }

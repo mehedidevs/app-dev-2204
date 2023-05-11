@@ -8,7 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.ju.simplequiz2204.databinding.ItemUserFrBinding
 
-class UserAdapter : ListAdapter<User, UserAdapter.UserViewHolder>(compartor) {
+class UserAdapter(var user: UserListener) :
+    ListAdapter<User, UserAdapter.UserViewHolder>(compartor) {
+
+    interface UserListener {
+        fun moveUser(user: User)
+
+    }
 
 
     class UserViewHolder(var binding: ItemUserFrBinding) : RecyclerView.ViewHolder(binding.root)
@@ -30,6 +36,14 @@ class UserAdapter : ListAdapter<User, UserAdapter.UserViewHolder>(compartor) {
         getItem(position).let {
             holder.binding.nameTv.text = it.name
             holder.binding.mobileTv.text = it.phone
+
+            holder.itemView.setOnClickListener { _ ->
+
+                user.moveUser(it)
+
+
+            }
+
         }
 
     }
