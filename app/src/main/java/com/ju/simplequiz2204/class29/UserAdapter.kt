@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
+import coil.load
 import com.ju.simplequiz2204.databinding.ItemUserFrBinding
 
 class UserAdapter(var user: UserListener) :
@@ -36,6 +37,7 @@ class UserAdapter(var user: UserListener) :
         getItem(position).let {
             holder.binding.nameTv.text = it.name
             holder.binding.mobileTv.text = it.phone
+            holder.binding.profileImage.load(it.profileImgUrl)
 
             holder.itemView.setOnClickListener { _ ->
 

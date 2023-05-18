@@ -79,7 +79,9 @@ class RegisterFragment : Fragment() {
                         "email" to email,
                         "phone" to phone,
                         "password" to password,
-                        "address" to address
+                        "address" to address,
+                        "userId" to firebaseUser.uid,
+                        "profileImgUrl" to "img"
                     )
 
                     if (userId != null) {
