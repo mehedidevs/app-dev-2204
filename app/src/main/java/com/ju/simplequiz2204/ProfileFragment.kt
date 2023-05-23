@@ -16,12 +16,19 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import coil.load
 import com.github.dhaval2404.imagepicker.ImagePicker
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.ju.simplequiz2204.class29.ChatFragment
 
 import com.ju.simplequiz2204.class29.User
 import com.ju.simplequiz2204.databinding.FragmentProfileBinding
@@ -37,6 +44,8 @@ class ProfileFragment : Fragment() {
     lateinit var binding: FragmentProfileBinding
 
     lateinit var firebaseStorage: StorageReference
+
+    var firebaseUser: FirebaseUser? = null
 
     lateinit var firebaseDatabaseReference: DatabaseReference
 
@@ -70,34 +79,60 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
+        user = requireArguments().getParcelable<User>(USER)!!
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         firebaseStorage = FirebaseStorage.getInstance().getReference("Upload")
 
+        firebaseUser = FirebaseAuth.getInstance().currentUser
 
-        user = requireArguments().getParcelable<User>(USER)!!
+        val database = Firebase.database
+        firebaseDatabaseReference = database.reference.child("User").child(user.userId)
+
+        firebaseDatabaseReference.addValueEventListener(
+            object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val fUser: User = snapshot.getValue(User::class.java)!!
+                    binding.profileImage.load(fUser.profileImgUrl)
+
+                    if (firebaseUser!!.uid != fUser.userId) {
+                        binding.pickAnImage.text = MESSAGE
+                    }
+
+
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+
+            })
+
+
+
+
 
         binding.mobileTv.text = user.phone
         binding.nameTv.text = user.email
         binding.pickAnImage.setOnClickListener {
+
             if (binding.pickAnImage.text == UPLOAD) {
-
                 startImageUpload()
+            } else if (binding.pickAnImage.text == MESSAGE) {
 
+                val bundle = Bundle()
+
+                bundle.putParcelable(ChatFragment.USER, user)
+
+                findNavController().navigate(R.id.action_profileFragment_to_chatFragment, bundle)
+
+
+                Toast.makeText(requireContext(), "Message Clicked", Toast.LENGTH_SHORT).show()
 
             } else {
                 requestPermissions()
             }
 
-
         }
-
-
-
-
-
-
-
 
         return binding.root
     }
@@ -118,8 +153,6 @@ class ProfileFragment : Fragment() {
                         "profileImgUrl" to url
                     )
 
-                    val database = Firebase.database
-                    firebaseDatabaseReference = database.reference.child("User").child(user.userId)
 
                     firebaseDatabaseReference.updateChildren(map)
                         .addOnSuccessListener { profileUrl ->
@@ -151,6 +184,7 @@ class ProfileFragment : Fragment() {
 
         const val USER = "user"
         const val UPLOAD = "Upload"
+        const val MESSAGE = "message"
 
 
     }

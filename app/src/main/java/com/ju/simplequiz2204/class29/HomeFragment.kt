@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -23,6 +24,8 @@ class HomeFragment : Fragment(), UserAdapter.UserListener {
     lateinit var binding: FragmentHomeBinding
     lateinit var mAuth: FirebaseAuth
 
+    var firebaseUser: FirebaseUser? = null
+
     var userList = mutableListOf<User>()
 
     lateinit var adapter: UserAdapter
@@ -34,6 +37,8 @@ class HomeFragment : Fragment(), UserAdapter.UserListener {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         mAuth = FirebaseAuth.getInstance()
         adapter = UserAdapter(this@HomeFragment)
+
+        firebaseUser = FirebaseAuth.getInstance().currentUser
 
         binding.logoutBtn.setOnClickListener {
             mAuth.signOut();
@@ -59,7 +64,14 @@ class HomeFragment : Fragment(), UserAdapter.UserListener {
                         Log.i("TAG", "onDataChange: ${user.email}")
 
 
-                        userList.add(user)
+                        if (firebaseUser != null) {
+                            if (user.userId != firebaseUser!!.uid) {
+                                userList.add(user)
+                            }
+
+
+                        }
+
 
                     }
 
