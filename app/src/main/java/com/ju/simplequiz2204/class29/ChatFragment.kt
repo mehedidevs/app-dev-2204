@@ -6,10 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView.LayoutManager
+import coil.load
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.ju.simplequiz2204.ProfileFragment
 
@@ -23,7 +30,10 @@ class ChatFragment : Fragment() {
     lateinit var user: User
     var firebaseUser: FirebaseUser? = null
     lateinit var firebaseDatabaseReference: DatabaseReference
+    var currentUserID = ""
 
+
+    var chats: MutableList<Chat> = mutableListOf()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,11 +43,57 @@ class ChatFragment : Fragment() {
 
         user = requireArguments().getParcelable<User>(ProfileFragment.USER)!!
 
-        firebaseUser = FirebaseAuth.getInstance().currentUser
+        FirebaseAuth.getInstance().currentUser?.let {
+            firebaseUser = it
+            currentUserID = it.uid
+
+        }
+
+        val manager = LinearLayoutManager(requireContext())
+
+        manager.stackFromEnd = true
+
+        binding.chatRcv.layoutManager = manager
 
 
         val database = Firebase.database
         firebaseDatabaseReference = database.reference.child("chat")
+
+
+        firebaseDatabaseReference.addValueEventListener(
+            object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+
+                    chats.clear()
+
+                    snapshot.children.forEach {
+
+                        val chat: Chat = it.getValue<Chat>(Chat::class.java)!!
+
+                        if (chat.sender == currentUserID && chat.receiver == user.userId
+                            || chat.sender == user.userId && chat.receiver == currentUserID
+                        ) {
+
+                            chats.add(chat)
+
+                        }
+
+
+                    }
+
+                    val adapter = ChatAdapter(chats, currentUserID)
+
+                    binding.chatRcv.adapter = adapter
+
+
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+
+            })
+
 
 
         binding.sendBtn.setOnClickListener {
